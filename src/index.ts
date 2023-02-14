@@ -5,6 +5,4 @@ dotenv.config();
 
 import serve from "./server";
 
-const PORT = 6000; // TODO move to dotenv
-
-serve(PORT);
+serve(Number(process.env.PORT || 3000));
