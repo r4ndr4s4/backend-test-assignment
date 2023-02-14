@@ -2,12 +2,15 @@
   "name": "xund-backend-test-assignment",
   "description": "xund-backend-test-assignment",
   "repository": {
-    "type": "git"
+    "type": "git",
+    "url": "https://github.com/r4ndr4s4/xund-backend-test-assignment"
   },
   "scripts": {
-    "build:prod": "npm run build -- tsconfig-build.json",
+    "build": "./node_modules/.bin/tsc --build --verbose",
     "build:watch": "npm run build -- --watch",
-    "build": "rimraf ./lib/**/* && ./node_modules/.bin/tsc --build --verbose",
+    "build:prod": "npm run build -- tsconfig-build.json",
+    "start": "node ./lib/index.js",
+    "start:dev": "ts-node-dev ./src/index.ts",
     "lint": "eslint 'src/{,**/}*.ts'",
     "prettify": "prettier --write 'src/**/*.{ts,tsx}'"
   },
@@ -18,7 +21,8 @@
     "express": "^4.17.2",
     "helmet": "^5.0.1",
     "io-ts": "2.2.16",
-    "io-ts-types": "^0.5.16"
+    "io-ts-types": "^0.5.16",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
@@ -26,6 +30,7 @@
     "@types/express": "4.17.0",
     "@types/express-serve-static-core": "4.17.0",
     "@types/helmet": "0.0.48",
+    "@types/morgan": "^1.9.2",
     "@types/node": "^14.18.4",
     "@types/node-fetch": "^2.5.12",
     "@typescript-eslint/eslint-plugin": "^5.9.0",
@@ -36,6 +41,7 @@
     "eslint-plugin-import": "^2.25.4",
     "prettier": "^2.5.1",
     "rimraf": "^3.0.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^4.5.4"
   },
   "private": true,
