@@ -9,8 +9,6 @@ const createUser = async (
 ): Promise<Response> => {
   const { name, email } = body;
 
-  console.log({ name, email });
-
   const user = await sql<User[]>`
     insert into users (name, email) values (${name}, ${email})
     returning *

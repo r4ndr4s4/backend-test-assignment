@@ -10,8 +10,6 @@ const deleteProject = async (
 ): Promise<Response> => {
   const { projectId } = params;
 
-  console.log({ projectId });
-
   // TODO move to middleware?
   const projectOwner = await sql<Project[]>`
     select owner_id from projects where id=${projectId} and deleted=false

@@ -11,8 +11,6 @@ const updateProject = async (
   const { projectId } = params;
   const { name } = body;
 
-  console.log({ projectId, name });
-
   // TODO move to middleware?
   const projectOwner = await sql<Project[]>`
     select owner_id from projects where id=${projectId} and deleted=false

@@ -9,8 +9,6 @@ const getUserDetails = async (
 ): Promise<Response> => {
   const { userId } = params;
 
-  console.log({ userId });
-
   const user = await sql<User[]>`
     select name, email from users where id=${userId} and deleted=false
   `;

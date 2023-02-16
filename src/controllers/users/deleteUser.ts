@@ -10,8 +10,6 @@ const deleteUser = async (
 ): Promise<Response> => {
   const { userId } = params;
 
-  console.log({ userId });
-
   assert(userId === auth.userId, "Users can only delete themselves.");
 
   const user = await sql<User[]>`

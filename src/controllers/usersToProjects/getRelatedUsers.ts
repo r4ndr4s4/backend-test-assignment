@@ -24,13 +24,9 @@ const getRelatedUsers = async (
     select user_id from users_to_projects where project_id=${projectId} and deleted=false
   `;
 
-  console.log({ usersToProject });
-
   const userIdsToProject = usersToProject.map(
     (userToProject) => userToProject.user_id
   );
-
-  console.log({ userIdsToProject });
 
   // TODO doesn't work
   const users = await sql<User[]>`

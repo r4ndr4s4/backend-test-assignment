@@ -11,8 +11,6 @@ const updateUser = async (
   const { userId } = params;
   const { name, email } = body;
 
-  console.log({ userId, name, email });
-
   assert(userId === auth.userId, "Users can only update themselves.");
 
   const user = await sql<User[]>`

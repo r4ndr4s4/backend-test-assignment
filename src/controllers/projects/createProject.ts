@@ -9,8 +9,6 @@ const createProject = async (
 ): Promise<Response> => {
   const { name } = body;
 
-  console.log({ name });
-
   const project = await sql<Project[]>`
     insert into projects (name, owner_id) values (${name}, ${auth.userId})
     returning *
