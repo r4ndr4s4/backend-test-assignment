@@ -1,8 +1,22 @@
 import { Request, Response } from "express";
 
-const deleteUser = async (_: Request, res: Response): Promise<Response> => {
+import sql from "../../database";
+
+const deleteUser = async (
+  { params }: Request,
+  res: Response
+): Promise<Response> => {
+  const { userId } = params;
+
+  console.log({ userId });
+
+  const user = await sql`
+    update users set deleted=true where id=${userId}
+    returning *
+  `;
+
   return res.json({
-    status: "deleteUser OK",
+    data: user,
   });
 };
 
