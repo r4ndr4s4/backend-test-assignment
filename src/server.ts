@@ -1,8 +1,8 @@
 import express from "express";
 import { Server } from "http";
 import helmet from "helmet";
-// eslint-disable-next-line import/no-extraneous-dependencies
-import morgan from "morgan"; // TODO check later
+import morgan from "morgan";
+import bodyParser from "body-parser";
 
 import healthcheck from "./healthcheck";
 
@@ -28,6 +28,7 @@ const serve = (port: number): Server => {
 
   app.use(morgan("common"));
   app.use(helmet.noSniff());
+  app.use(bodyParser.json());
 
   app.get("/", healthcheck);
 

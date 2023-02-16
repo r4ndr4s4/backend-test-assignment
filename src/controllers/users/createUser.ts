@@ -1,8 +1,22 @@
 import { Request, Response } from "express";
 
-const createUser = async (_: Request, res: Response): Promise<Response> => {
+import sql from "../../database";
+
+const createUser = async (
+  { body }: Request,
+  res: Response
+): Promise<Response> => {
+  const { name, email } = body;
+
+  console.log({ name, email });
+
+  const user = await sql`
+    insert into users (name, email) values (${name}, ${email})
+    returning *
+  `;
+
   return res.json({
-    status: "createUser OK",
+    data: user,
   });
 };
 

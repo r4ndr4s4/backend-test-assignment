@@ -16,13 +16,15 @@
   },
   "main": "lib/index.js",
   "dependencies": {
+    "body-parser": "^1.20.1",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
     "helmet": "^5.0.1",
     "io-ts": "2.2.16",
     "io-ts-types": "^0.5.16",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "postgres": "^3.3.3"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
