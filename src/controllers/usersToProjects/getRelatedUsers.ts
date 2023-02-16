@@ -2,21 +2,16 @@ import { Request, Response } from "express";
 import assert from "assert";
 
 import sql from "../../database";
-import { Project, User, UserToProject } from "../../types";
+import { User, UserToProject } from "../../types";
 
 const getRelatedUsers = async (
-  { params, auth }: Request,
+  { params, auth, project }: Request,
   res: Response
 ): Promise<Response> => {
   const { projectId } = params;
 
-  // TODO move to middleware?
-  const projectOwner = await sql<Project[]>`
-    select owner_id from projects where id=${projectId} and deleted=false
-  `;
-
   assert(
-    projectOwner[0].owner_id === auth.userId,
+    project.ownerId === auth.userId,
     "Users can only see the linked users of their own projects."
   );
 

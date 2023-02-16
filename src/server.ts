@@ -5,6 +5,7 @@ import morgan from "morgan";
 import bodyParser from "body-parser";
 
 import auth from "./middlewares/auth";
+import owner from "./middlewares/owner";
 
 import healthcheck from "./healthcheck";
 
@@ -45,13 +46,17 @@ const serve = (port: number): Server => {
   // projects
   app.post("/projects", createProject);
   app.get("/projects", getRelatedProjects);
-  app.patch("/projects/:projectId", updateProject);
-  app.delete("/projects/:projectId", deleteProject);
+  app.patch("/projects/:projectId", owner, updateProject);
+  app.delete("/projects/:projectId", owner, deleteProject);
 
   // usersToProjects
-  app.post("/projects/:projectId/users/:userId", addUserToProject);
-  app.delete("/projects/:projectId/users/:userId", removeUserFromProject);
-  app.get("/projects/:projectId/users", getRelatedUsers);
+  app.post("/projects/:projectId/users/:userId", owner, addUserToProject);
+  app.delete(
+    "/projects/:projectId/users/:userId",
+    owner,
+    removeUserFromProject
+  );
+  app.get("/projects/:projectId/users", owner, getRelatedUsers);
 
   return app.listen(port, () => {
     console.info(`Server listening on port ${port}.`);

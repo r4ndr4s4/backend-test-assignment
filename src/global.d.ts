@@ -7,6 +7,10 @@ declare global {
         userId: string;
         userEmail: string;
       };
+
+      project: {
+        ownerId: string;
+      };
     }
   }
 }

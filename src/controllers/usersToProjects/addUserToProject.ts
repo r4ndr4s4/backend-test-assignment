@@ -2,21 +2,16 @@ import { Request, Response } from "express";
 import assert from "assert";
 
 import sql from "../../database";
-import { Project, UserToProject } from "../../types";
+import { UserToProject } from "../../types";
 
 const addUserToProject = async (
-  { params, auth }: Request,
+  { params, auth, project }: Request,
   res: Response
 ): Promise<Response> => {
   const { projectId, userId } = params;
 
-  // TODO move to middleware?
-  const projectOwner = await sql<Project[]>`
-    select owner_id from projects where id=${projectId} and deleted=false
-  `;
-
   assert(
-    projectOwner[0].owner_id === auth.userId,
+    project.ownerId === auth.userId,
     "Users can only add other users to their own projects."
   );
 
