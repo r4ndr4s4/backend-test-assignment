@@ -12,7 +12,7 @@ const getUserDetails = async (
   console.log({ userId });
 
   const user = await sql<User[]>`
-    select name, email from users where id=${userId}
+    select name, email from users where id=${userId} and deleted=false
   `;
 
   return res.json({

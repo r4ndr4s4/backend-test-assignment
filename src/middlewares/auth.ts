@@ -18,7 +18,7 @@ export const auth = async (
   }
 
   const user = await sql<User[]>`
-    select * from users where email=${apiKey}
+    select * from users where email=${apiKey} and deleted=false
   `;
 
   if (!user.length) {
