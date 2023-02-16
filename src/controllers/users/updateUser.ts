@@ -16,7 +16,7 @@ const updateUser = async (
   assert(userId === auth.userId, "Users can only update themselves.");
 
   const user = await sql<User[]>`
-    update users set name=${name}, email=${email} where id=${userId}
+    update users set name=${name}, email=${email} where id=${userId} and deleted=false
     returning *
   `;
 
