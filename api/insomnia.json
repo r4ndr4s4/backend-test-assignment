@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2023-02-16T14:37:51.966Z",
+  "__export_date": "2023-02-16T22:04:39.544Z",
   "__export_source": "insomnia.desktop.app:v2022.7.0",
   "resources": [
     {
@@ -40,7 +40,7 @@
     {
       "_id": "req_24f7d9b353154bed841366dd97a2c4dd",
       "parentId": "fld_6274ca46727546899cdb4d7c35c0c867",
-      "modified": 1676554936265,
+      "modified": 1676575653478,
       "created": 1676397136188,
       "url": "{{ _.base_url }}/users",
       "name": "createUser",
@@ -48,7 +48,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"name\": \"Rakita András\",\n\t\"email\": \"Rakita.Andras@gmail.com\"\n}"
+        "text": "{\n\t\"name\": \"Rakita András Ferenc\",\n\t\"email\": \"Rakita.Andras+2@gmail.com\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -64,6 +64,12 @@
           "value": "admin@admin.com",
           "description": "",
           "disabled": false
+        },
+        {
+          "id": "pair_9196ab54a285422aa177f27838606317",
+          "name": "",
+          "value": "",
+          "description": ""
         }
       ],
       "authentication": {},
@@ -191,20 +197,28 @@
     {
       "_id": "req_5d19e73cffc84384a2e7c59e7faa05a7",
       "parentId": "fld_043173359793459da6b56b3c4aa44917",
-      "modified": 1676557520205,
+      "modified": 1676575891016,
       "created": 1676397400819,
       "url": "{{ _.base_url }}/projects",
       "name": "createProject",
       "description": "",
       "method": "POST",
-      "body": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Teszt projekt 3\"\n}"
+      },
       "parameters": [],
       "headers": [
         {
           "id": "pair_202623fff5534185be7b4fde150f8990",
           "name": "X-Auth-User-Email",
-          "value": "admin@admin.com",
+          "value": "Rakita.Andras+2@gmail.com",
           "description": ""
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_a63788843224444384f15c4e3d6b33f5"
         }
       ],
       "authentication": {},
@@ -263,13 +277,16 @@
     {
       "_id": "req_a13c6d96dbfe4a448f198fae1f163a65",
       "parentId": "fld_043173359793459da6b56b3c4aa44917",
-      "modified": 1676557523928,
+      "modified": 1676581625957,
       "created": 1676397453936,
-      "url": "{{ _.base_url }}/projects/123",
+      "url": "{{ _.base_url }}/projects/7ae43eaf-2481-42b1-ac34-40afd51fdc75",
       "name": "updateProject",
       "description": "",
       "method": "PATCH",
-      "body": {},
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"name\": \"Teszt projekt 2\"\n}"
+      },
       "parameters": [],
       "headers": [
         {
@@ -277,6 +294,11 @@
           "name": "X-Auth-User-Email",
           "value": "admin@admin.com",
           "description": ""
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_58a8c008a6f544e2a50850f690732714"
         }
       ],
       "authentication": {},
@@ -293,9 +315,9 @@
     {
       "_id": "req_a7c6ab858c7f4193b02db5c298736c2d",
       "parentId": "fld_043173359793459da6b56b3c4aa44917",
-      "modified": 1676557525846,
+      "modified": 1676581743902,
       "created": 1676397474371,
-      "url": "{{ _.base_url }}/projects/123",
+      "url": "{{ _.base_url }}/projects/7ae43eaf-2481-42b1-ac34-40afd51fdc75",
       "name": "deleteProject",
       "description": "",
       "method": "DELETE",
@@ -323,9 +345,9 @@
     {
       "_id": "req_54c6d65f31554888a433ede6f9c163ee",
       "parentId": "fld_8c446bcee4c6438b80b14603dc22d57f",
-      "modified": 1676557527807,
+      "modified": 1676582214696,
       "created": 1676397546274,
-      "url": "{{ _.base_url }}/projects/123/users/123",
+      "url": "{{ _.base_url }}/projects/6bbba903-16ad-4f4f-a1b9-c2a3e6cf5bb8/users/1642541e-b021-4e9f-976c-66272eb74de2",
       "name": "addUserToProject",
       "description": "",
       "method": "POST",
@@ -335,7 +357,7 @@
         {
           "id": "pair_00f054ffc28e4bbbb345d627d4763ad2",
           "name": "X-Auth-User-Email",
-          "value": "admin@admin.com",
+          "value": "Rakita.Andras+2@gmail.com",
           "description": ""
         }
       ],
@@ -365,9 +387,9 @@
     {
       "_id": "req_fa262e0fbeb64b73aa836114c18699b2",
       "parentId": "fld_8c446bcee4c6438b80b14603dc22d57f",
-      "modified": 1676557529749,
+      "modified": 1676582559115,
       "created": 1676397586428,
-      "url": "{{ _.base_url }}/projects/123/users/123",
+      "url": "{{ _.base_url }}/projects/6bbba903-16ad-4f4f-a1b9-c2a3e6cf5bb8/users/9da606b6-4df1-4c74-a5d9-663686a62cb4",
       "name": "removeUserFromProject",
       "description": "",
       "method": "DELETE",
@@ -377,7 +399,7 @@
         {
           "id": "pair_f69fd9b0c1a44173b22a5de7da712351",
           "name": "X-Auth-User-Email",
-          "value": "admin@admin.com",
+          "value": "Rakita.Andras+2@gmail.com",
           "description": ""
         }
       ],
@@ -395,9 +417,9 @@
     {
       "_id": "req_6b7c7d39cc8b4501bbd76d4203f3705a",
       "parentId": "fld_8c446bcee4c6438b80b14603dc22d57f",
-      "modified": 1676557534384,
+      "modified": 1676582397401,
       "created": 1676397619520,
-      "url": "{{ _.base_url }}/projects/123/users",
+      "url": "{{ _.base_url }}/projects/7ae43eaf-2481-42b1-ac34-40afd51fdc75/users",
       "name": "getRelatedUsers",
       "description": "",
       "method": "GET",
@@ -421,6 +443,56 @@
       "settingRebuildPath": true,
       "settingFollowRedirects": "global",
       "_type": "request"
+    },
+    {
+      "_id": "req_904c04e780ad48b8a30db260c54d8399",
+      "parentId": "fld_dfcd92df39e3433686f75c5ee897dee5",
+      "modified": 1676583816597,
+      "created": 1676583681520,
+      "url": "{{ _.base_url }}/logs",
+      "name": "createLog",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"startDate\": \"2022-01-01 12:00:00\",\n\t\"endDate\": \"2022-12-31 12:00:00\",\n\t\"projectId\": \"6bbba903-16ad-4f4f-a1b9-c2a3e6cf5bb8\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "id": "pair_202623fff5534185be7b4fde150f8990",
+          "name": "X-Auth-User-Email",
+          "value": "admin@admin.com",
+          "description": ""
+        },
+        {
+          "name": "Content-Type",
+          "value": "application/json",
+          "id": "pair_a63788843224444384f15c4e3d6b33f5"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1676397400794,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_dfcd92df39e3433686f75c5ee897dee5",
+      "parentId": "wrk_6879c06a857e49a2b623c397777dae2d",
+      "modified": 1676583707990,
+      "created": 1676583664119,
+      "name": "Logs",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1676397192836,
+      "_type": "request_group"
     },
     {
       "_id": "env_35d79e3b179489cae8cf6a626968e6148c56716e",
