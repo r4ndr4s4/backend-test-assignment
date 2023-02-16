@@ -26,6 +26,9 @@ import addUserToProject from "./controllers/usersToProjects/addUserToProject";
 import removeUserFromProject from "./controllers/usersToProjects/removeUserFromProject";
 import getRelatedUsers from "./controllers/usersToProjects/getRelatedUsers";
 
+// logs
+import createLog from "./controllers/logs/createLog";
+
 const serve = (port: number): Server => {
   const app = express();
 
@@ -57,6 +60,9 @@ const serve = (port: number): Server => {
     removeUserFromProject
   );
   app.get("/projects/:projectId/users", owner, getRelatedUsers);
+
+  // logs
+  app.post("/logs", createLog);
 
   return app.listen(port, () => {
     console.info(`Server listening on port ${port}.`);
