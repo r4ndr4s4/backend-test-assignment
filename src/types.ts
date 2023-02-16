@@ -26,7 +26,7 @@ export interface Log {
   user_and_project_id: string;
 }
 
-export interface UsersToProjects {
+export interface UserToProject {
   id: string;
   created_at: string;
   updated_at: string;
