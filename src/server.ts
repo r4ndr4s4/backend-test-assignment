@@ -4,6 +4,8 @@ import helmet from "helmet";
 import morgan from "morgan";
 import bodyParser from "body-parser";
 
+import auth from "./middlewares/auth";
+
 import healthcheck from "./healthcheck";
 
 // users
@@ -31,6 +33,8 @@ const serve = (port: number): Server => {
   app.use(bodyParser.json());
 
   app.get("/", healthcheck);
+
+  app.use(auth);
 
   // users
   app.post("/users", createUser);

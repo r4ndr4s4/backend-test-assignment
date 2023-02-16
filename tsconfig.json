@@ -14,5 +14,6 @@
     "types": ["jest", "node"]
   },
   "compileOnSave": true,
-  "include": ["src", "src/**/*.json"]
+  "include": ["src", "src/**/*.json"],
+  "files": ["src/global.d.ts"],
 }
