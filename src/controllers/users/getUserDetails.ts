@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 
 import sql from "../../database";
+import { User } from "../../types";
 
 const getUserDetails = async (
   { params }: Request,
@@ -10,7 +11,7 @@ const getUserDetails = async (
 
   console.log({ userId });
 
-  const user = await sql`
+  const user = await sql<User[]>`
     select name, email from users where id=${userId}
   `;
 

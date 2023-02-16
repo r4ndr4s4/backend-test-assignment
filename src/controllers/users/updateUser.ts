@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 
 import sql from "../../database";
+import { User } from "../../types";
 
 const updateUser = async (
   { params, body }: Request,
@@ -11,7 +12,7 @@ const updateUser = async (
 
   console.log({ userId, name, email });
 
-  const user = await sql`
+  const user = await sql<User[]>`
     update users set name=${name}, email=${email} where id=${userId}
     returning *
   `;
