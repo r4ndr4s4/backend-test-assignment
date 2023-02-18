@@ -1,4 +1,9 @@
-import express from "express";
+import express, {
+  NextFunction,
+  Request,
+  RequestHandler,
+  Response,
+} from "express";
 import { Server } from "http";
 import helmet from "helmet";
 import morgan from "morgan";
@@ -6,6 +11,7 @@ import cors from "cors";
 
 import auth from "./middlewares/auth";
 import owner from "./middlewares/owner";
+import error from "./middlewares/error";
 
 import healthcheck from "./healthcheck";
 
@@ -29,6 +35,10 @@ import getRelatedUsers from "./controllers/usersToProjects/getRelatedUsers";
 // logs
 import createLog from "./controllers/logs/createLog";
 
+const asyncHandler =
+  (fn: RequestHandler) => (req: Request, res: Response, next: NextFunction) =>
+    Promise.resolve(fn(req, res, next)).catch(next);
+
 const serve = (port: number): Server => {
   const app = express();
 
@@ -38,33 +48,39 @@ const serve = (port: number): Server => {
 
   app.use(express.json());
 
-  app.get("/", healthcheck);
+  app.get("/", asyncHandler(healthcheck));
 
   app.use(auth);
 
   // users
-  app.post("/users", createUser);
-  app.get("/users/:userId", getUserDetails);
-  app.patch("/users/:userId", updateUser);
-  app.delete("/users/:userId", deleteUser);
+  app.post("/users", asyncHandler(createUser));
+  app.get("/users/:userId", asyncHandler(getUserDetails));
+  app.patch("/users/:userId", asyncHandler(updateUser));
+  app.delete("/users/:userId", asyncHandler(deleteUser));
 
   // projects
-  app.post("/projects", createProject);
-  app.get("/projects", getRelatedProjects);
-  app.patch("/projects/:projectId", owner, updateProject);
-  app.delete("/projects/:projectId", owner, deleteProject);
+  app.post("/projects", asyncHandler(createProject));
+  app.get("/projects", asyncHandler(getRelatedProjects));
+  app.patch("/projects/:projectId", owner, asyncHandler(updateProject));
+  app.delete("/projects/:projectId", owner, asyncHandler(deleteProject));
 
   // usersToProjects
-  app.post("/projects/:projectId/users/:userId", owner, addUserToProject);
+  app.post(
+    "/projects/:projectId/users/:userId",
+    owner,
+    asyncHandler(addUserToProject)
+  );
   app.delete(
     "/projects/:projectId/users/:userId",
     owner,
-    removeUserFromProject
+    asyncHandler(removeUserFromProject)
   );
-  app.get("/projects/:projectId/users", owner, getRelatedUsers);
+  app.get("/projects/:projectId/users", owner, asyncHandler(getRelatedUsers));
 
   // logs
-  app.post("/logs", createLog);
+  app.post("/logs", asyncHandler(createLog));
+
+  app.use(error);
 
   return app.listen(port, () => {
     console.info(`Server listening on port ${port}.`);
