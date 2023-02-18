@@ -2,6 +2,7 @@ import express from "express";
 import { Server } from "http";
 import helmet from "helmet";
 import morgan from "morgan";
+import cors from "cors";
 
 import auth from "./middlewares/auth";
 import owner from "./middlewares/owner";
@@ -33,6 +34,7 @@ const serve = (port: number): Server => {
 
   app.use(morgan("common"));
   app.use(helmet.noSniff());
+  app.use(cors());
 
   app.use(express.json());
 
