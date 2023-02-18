@@ -18,9 +18,9 @@ const getRelatedProjects = async (
 
   // owned and linked projects
   const projects = await sql<Project[]>`
-    select id, name from projects where owner_id=${
-      auth.userId
-    } or id in (${projectIdsToUser.join(", ")}) and deleted=false
+    select id, name from projects where owner_id=${auth.userId} or id in ${sql(
+    projectIdsToUser
+  )} and deleted=false
   `;
 
   return res.json({

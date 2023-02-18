@@ -23,11 +23,8 @@ const getRelatedUsers = async (
     (userToProject) => userToProject.user_id
   );
 
-  // TODO doesn't work
   const users = await sql<User[]>`
-    select * from users where id::text in (${userIdsToProject.join(
-      ", "
-    )}) and deleted=false
+    select * from users where id in ${sql(userIdsToProject)} and deleted=false
   `;
 
   return res.json({
