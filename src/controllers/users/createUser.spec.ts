@@ -6,9 +6,6 @@ import auth from "../../middlewares/auth";
 import error from "../../middlewares/error";
 
 import createUser from "./createUser";
-import getUserDetails from "./getUserDetails";
-import updateUser from "./updateUser";
-import deleteUser from "./deleteUser";
 
 describe("Users controller", () => {
   const app = express();
@@ -18,9 +15,6 @@ describe("Users controller", () => {
   app.use(auth);
 
   app.post("/users", asyncHandler(createUser));
-  app.get("/users/:userId", asyncHandler(getUserDetails));
-  app.patch("/users/:userId", asyncHandler(updateUser));
-  app.delete("/users/:userId", asyncHandler(deleteUser));
 
   app.use(error);
 
