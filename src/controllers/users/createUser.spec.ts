@@ -33,10 +33,4 @@ describe("Users controller", () => {
       .set("X-Auth-User-Email", "admin@admin.com")
       .expect(200);
   });
-
-  it("getUserDetails should send 200", async () => {});
-
-  it("updateUser should send 200", async () => {});
-
-  it("deleteUser should send 200", async () => {});
 });
