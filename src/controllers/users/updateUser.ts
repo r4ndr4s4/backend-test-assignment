@@ -3,13 +3,16 @@ import assert from "assert";
 
 import sql from "../../database";
 import { User } from "../../types";
+import { userSchema } from "../../schemas";
 
 const updateUser = async (
   { params, body, auth }: Request,
   res: Response
 ): Promise<Response> => {
+  const validatedBody = await userSchema.validate(body);
+  const { name, email } = validatedBody;
+
   const { userId } = params;
-  const { name, email } = body;
 
   assert(userId === auth.userId, "Users can only update themselves.");
 

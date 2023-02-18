@@ -3,13 +3,16 @@ import assert from "assert";
 
 import sql from "../../database";
 import { Project } from "../../types";
+import { projectSchema } from "../../schemas";
 
 const updateProject = async (
   { params, body, auth, project }: Request,
   res: Response
 ): Promise<Response> => {
+  const validatedBody = await projectSchema.validate(body);
+  const { name } = validatedBody;
+
   const { projectId } = params;
-  const { name } = body;
 
   assert(
     project.ownerId === auth.userId,

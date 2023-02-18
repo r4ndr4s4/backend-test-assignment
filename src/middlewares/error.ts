@@ -31,6 +31,8 @@ const isPostgresError = (err: Error): err is HTTPError =>
   err.name === "PostgresError";
 const isAssertionError = (err: Error): err is HTTPError =>
   err.name === "AssertionError";
+const isValidationError = (err: Error): err is HTTPError =>
+  err.name === "ValidationError";
 
 const ErrorMiddleware: ErrorRequestHandler = async (
   err: Error | HTTPError,
@@ -61,6 +63,14 @@ const ErrorMiddleware: ErrorRequestHandler = async (
     return res.status(500).json({
       status: "error",
       errorCode: "assertion_error",
+      message: err.message,
+    });
+  }
+
+  if (isValidationError(err)) {
+    return res.status(500).json({
+      status: "error",
+      errorCode: "validation_error",
       message: err.message,
     });
   }
