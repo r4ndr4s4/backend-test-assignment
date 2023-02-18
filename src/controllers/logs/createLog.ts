@@ -11,7 +11,7 @@ const createLog = async (
 
   const userToProject = await sql<UserToProject[]>`
     select id from users_to_projects where user_id=${auth.userId} and project_id=${projectId} and deleted=false
-    `;
+  `;
 
   // TODO handle if not linked to project
 
