@@ -1,7 +1,7 @@
 {
   "_type": "export",
   "__export_format": 4,
-  "__export_date": "2023-02-16T22:04:39.544Z",
+  "__export_date": "2023-02-18T18:04:39.197Z",
   "__export_source": "insomnia.desktop.app:v2022.7.0",
   "resources": [
     {
@@ -30,7 +30,7 @@
     {
       "_id": "wrk_6879c06a857e49a2b623c397777dae2d",
       "parentId": null,
-      "modified": 1676398150969,
+      "modified": 1676716923463,
       "created": 1676306349824,
       "name": "xund-backend-test-assignment",
       "description": "",
@@ -40,7 +40,7 @@
     {
       "_id": "req_24f7d9b353154bed841366dd97a2c4dd",
       "parentId": "fld_6274ca46727546899cdb4d7c35c0c867",
-      "modified": 1676575653478,
+      "modified": 1676743111130,
       "created": 1676397136188,
       "url": "{{ _.base_url }}/users",
       "name": "createUser",
@@ -48,7 +48,7 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"name\": \"Rakita András Ferenc\",\n\t\"email\": \"Rakita.Andras+2@gmail.com\"\n}"
+        "text": "{\n\t\"name\": \"Rakita András\",\n\t\"email\": \"Rakita.Andras@gmail.com\"\n}"
       },
       "parameters": [],
       "headers": [
@@ -129,9 +129,9 @@
     {
       "_id": "req_2211cd17608e432fbb4d63ecb7ea5c81",
       "parentId": "fld_6274ca46727546899cdb4d7c35c0c867",
-      "modified": 1676558070813,
+      "modified": 1676736089430,
       "created": 1676397271957,
-      "url": "{{ _.base_url }}/users/9da606b6-4df1-4c74-a5d9-663686a62cb4",
+      "url": "{{ _.base_url }}/users/1642541e-b021-4e9f-976c-66272eb74de2",
       "name": "updateUser",
       "description": "",
       "method": "PATCH",
@@ -197,7 +197,7 @@
     {
       "_id": "req_5d19e73cffc84384a2e7c59e7faa05a7",
       "parentId": "fld_043173359793459da6b56b3c4aa44917",
-      "modified": 1676575891016,
+      "modified": 1676736317041,
       "created": 1676397400819,
       "url": "{{ _.base_url }}/projects",
       "name": "createProject",
@@ -277,7 +277,7 @@
     {
       "_id": "req_a13c6d96dbfe4a448f198fae1f163a65",
       "parentId": "fld_043173359793459da6b56b3c4aa44917",
-      "modified": 1676581625957,
+      "modified": 1676736325941,
       "created": 1676397453936,
       "url": "{{ _.base_url }}/projects/7ae43eaf-2481-42b1-ac34-40afd51fdc75",
       "name": "updateProject",
@@ -345,9 +345,9 @@
     {
       "_id": "req_54c6d65f31554888a433ede6f9c163ee",
       "parentId": "fld_8c446bcee4c6438b80b14603dc22d57f",
-      "modified": 1676582214696,
+      "modified": 1676735008511,
       "created": 1676397546274,
-      "url": "{{ _.base_url }}/projects/6bbba903-16ad-4f4f-a1b9-c2a3e6cf5bb8/users/1642541e-b021-4e9f-976c-66272eb74de2",
+      "url": "{{ _.base_url }}/projects/dfabe4ba-29b7-4461-a16f-5d45d2554066/users/1642541e-b021-4e9f-976c-66272eb74de2",
       "name": "addUserToProject",
       "description": "",
       "method": "POST",
@@ -357,7 +357,7 @@
         {
           "id": "pair_00f054ffc28e4bbbb345d627d4763ad2",
           "name": "X-Auth-User-Email",
-          "value": "Rakita.Andras+2@gmail.com",
+          "value": "Rakita.Andras@gmail.com",
           "description": ""
         }
       ],
@@ -447,7 +447,7 @@
     {
       "_id": "req_904c04e780ad48b8a30db260c54d8399",
       "parentId": "fld_dfcd92df39e3433686f75c5ee897dee5",
-      "modified": 1676583816597,
+      "modified": 1676743440924,
       "created": 1676583681520,
       "url": "{{ _.base_url }}/logs",
       "name": "createLog",
@@ -455,14 +455,14 @@
       "method": "POST",
       "body": {
         "mimeType": "application/json",
-        "text": "{\n\t\"startDate\": \"2022-01-01 12:00:00\",\n\t\"endDate\": \"2022-12-31 12:00:00\",\n\t\"projectId\": \"6bbba903-16ad-4f4f-a1b9-c2a3e6cf5bb8\"\n}"
+        "text": "{\n\t\"startDate\": \"2022-01-01 12:00:00\",\n\t\"endDate\": \"2022-12-31 12:00:00\",\n\t\"projectId\": \"7ae43eaf-2481-42b1-ac34-40afd51fdc75\"\n}"
       },
       "parameters": [],
       "headers": [
         {
           "id": "pair_202623fff5534185be7b4fde150f8990",
           "name": "X-Auth-User-Email",
-          "value": "admin@admin.com",
+          "value": "Rakita.Andras@gmail.com",
           "description": ""
         },
         {
