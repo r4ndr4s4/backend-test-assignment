@@ -35,7 +35,7 @@ import getRelatedUsers from "./controllers/usersToProjects/getRelatedUsers";
 // logs
 import createLog from "./controllers/logs/createLog";
 
-const asyncHandler =
+export const asyncHandler =
   (fn: RequestHandler) => (req: Request, res: Response, next: NextFunction) =>
     Promise.resolve(fn(req, res, next)).catch(next);
 
