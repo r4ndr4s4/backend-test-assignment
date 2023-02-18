@@ -2,7 +2,6 @@ import express from "express";
 import { Server } from "http";
 import helmet from "helmet";
 import morgan from "morgan";
-import bodyParser from "body-parser";
 
 import auth from "./middlewares/auth";
 import owner from "./middlewares/owner";
@@ -34,7 +33,8 @@ const serve = (port: number): Server => {
 
   app.use(morgan("common"));
   app.use(helmet.noSniff());
-  app.use(bodyParser.json());
+
+  app.use(express.json());
 
   app.get("/", healthcheck);
 
