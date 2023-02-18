@@ -12,7 +12,7 @@ const removeUserFromProject = async (
 
   assert(
     project.ownerId === auth.userId || userId === auth.userId,
-    "Users can only delete themselves or get deleted by the owner of the project."
+    "Users can only delete others from a project if they are the owner."
   );
 
   const userToProject = await sql<UserToProject[]>`
