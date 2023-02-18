@@ -5,10 +5,10 @@ CREATE TABLE public.users_to_projects (
     id uuid NOT NULL DEFAULT uuid_generate_v4 (),
     created_at timestamptz NOT NULL DEFAULT now(),
     updated_at timestamptz NOT NULL DEFAULT now(),
-    deleted bool NOT NULL DEFAULT FALSE,
     user_id uuid NOT NULL,
     project_id uuid NOT NULL,
-    CONSTRAINT users_to_projects_pkey PRIMARY KEY (id)
+    CONSTRAINT users_to_projects_pkey PRIMARY KEY (id),
+    CONSTRAINT users_to_projects_un UNIQUE (user_id, project_id)
 );
 
 -- public.users_to_projects foreign keys

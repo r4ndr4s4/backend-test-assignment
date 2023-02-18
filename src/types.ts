@@ -30,7 +30,6 @@ export interface UserToProject {
   id: string;
   created_at: string;
   updated_at: string;
-  deleted: boolean;
   user_id: string;
   project_id: string;
 }

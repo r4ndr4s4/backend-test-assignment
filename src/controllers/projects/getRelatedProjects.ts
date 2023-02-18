@@ -9,7 +9,7 @@ const getRelatedProjects = async (
 ): Promise<Response> => {
   // linked projects
   const projectsToUser = await sql<UserToProject[]>`
-    select project_id from users_to_projects where user_id=${auth.userId} and deleted=false
+    select project_id from users_to_projects where user_id=${auth.userId}
   `;
 
   const projectIdsToUser = projectsToUser.map(

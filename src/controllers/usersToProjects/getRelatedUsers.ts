@@ -16,7 +16,7 @@ const getRelatedUsers = async (
   );
 
   const usersToProject = await sql<UserToProject[]>`
-    select user_id from users_to_projects where project_id=${projectId} and deleted=false
+    select user_id from users_to_projects where project_id=${projectId}
   `;
 
   const userIdsToProject = usersToProject.map(

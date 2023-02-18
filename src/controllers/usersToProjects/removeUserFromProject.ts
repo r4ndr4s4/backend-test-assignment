@@ -16,7 +16,7 @@ const removeUserFromProject = async (
   );
 
   const userToProject = await sql<UserToProject[]>`
-    update users_to_projects set deleted=true where project_id=${projectId} and user_id=${userId}
+    delete from users_to_projects where project_id=${projectId} and user_id=${userId}
     returning *
   `;
 

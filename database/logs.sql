@@ -14,5 +14,5 @@ CREATE TABLE public.logs (
 
 -- public.logs foreign keys
 ALTER TABLE public.logs
-    ADD CONSTRAINT logs_user_and_project_id_fkey FOREIGN KEY (user_and_project_id) REFERENCES public.users_to_projects (id);
+    ADD CONSTRAINT logs_user_and_project_id_fkey FOREIGN KEY (user_and_project_id) REFERENCES public.users_to_projects (id) ON DELETE CASCADE;
 
