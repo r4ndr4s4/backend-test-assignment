@@ -1,4 +1,4 @@
-# xund-backend-test-assignment
+# backend-test-assignment
 
 ## Setup
 - Run `npm install`
